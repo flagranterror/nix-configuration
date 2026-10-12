@@ -42,6 +42,7 @@
       "viscosity"
       "hammerspoon"
       "remember-the-milk"
+      "wireshark"
     ];
   };
 
