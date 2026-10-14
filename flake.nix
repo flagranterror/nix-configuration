@@ -23,7 +23,25 @@
         }
       ];
     };
-
+    darwinConfigurations."vicious" = nix-darwin.lib.darwinSystem {
+      modules = [
+        ./hosts/vicious.nix
+        home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "hm-backup";
+          home-manager.users.doug = {
+            import ./home-manager/hm-darwin.nix;
+            programs.git = {
+              enable = true;
+              settings.user.name  = "Doug McNish";
+              settings.user.email = "fe@0x41.team";
+            };
+          };
+        }
+      ];
+    };
     nixosConfigurations."delrey" = nixpkgs.lib.nixosSystem {
       modules = [
         ./hosts/delrey.nix
