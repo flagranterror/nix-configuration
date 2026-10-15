@@ -31,7 +31,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "hm-backup";
-          home-manager.users.doug = import ./home-manager/hm-darwin.nix;
+          home-manager.users.doug = import ./home-manager/hm-hal69420.nix;
         }
       ];
     };
@@ -45,7 +45,7 @@
           home-manager.useUserPackages = true;
           home-manager.backupFileExtension = "hm-backup";
           home-manager.extraSpecialArgs = { inherit inputs; };
-          home-manager.users.dag = import ./home-manager/default.nix;
+          home-manager.users.dag = import ./home-manager/hm-vicious.nix;
         }
       ];
     };

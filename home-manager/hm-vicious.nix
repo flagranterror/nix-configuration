@@ -8,5 +8,6 @@
     };
     imports = [
         ./default.nix
+        ./git-personal.nix
     ];
 }
