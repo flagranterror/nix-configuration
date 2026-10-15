@@ -4,6 +4,6 @@ _:
   programs.git = {
     enable = true;
     settings.user.name  = "Doug McNish";
-    settings.user.email = "flagranterror@pm.me"; 
+    settings.user.email = "fe@0x41.team";
   };
 }
