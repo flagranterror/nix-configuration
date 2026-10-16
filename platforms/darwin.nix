@@ -44,6 +44,8 @@
       "remember-the-milk"
       "wireshark-app"
       "discord"
+      "zotero"
+      "zettlr"
     ];
   };
 
