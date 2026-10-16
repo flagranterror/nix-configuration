@@ -27,6 +27,10 @@
     ];
     brews = [
       "curl"
+      "autoconf"
+      "bison"
+      "re2c"
+      "pkg-config"
     ];
     casks = [
       "signal"
