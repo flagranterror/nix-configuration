@@ -6,7 +6,7 @@ spoon.SpoonInstall:andUse("AppLauncher", {
   },
   hotkeys = {
     f = "Finder",
-    c = "Calendar",
+    c = "Fantastical",
     d = "Discord",
     j = "Brave Browser",
     k = "Visual Studio Code",
