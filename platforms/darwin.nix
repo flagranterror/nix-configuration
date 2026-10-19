@@ -51,6 +51,7 @@
       "discord"
       "zotero"
       "zettlr"
+      "obsidian"
     ];
   };
 
