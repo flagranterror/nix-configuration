@@ -39,6 +39,7 @@
       "kitty"
       "emacs-plus-app"
       "fluor"
+      "inkscape"
       "visual-studio-code"
       "marta"
       "basictex"
