@@ -50,7 +50,6 @@
       "wireshark-app"
       "discord"
       "zotero"
-      "zettlr"
       "obsidian"
     ];
   };
