@@ -34,6 +34,7 @@
     ];
     casks = [
       "signal"
+      "steam"
       "1password-cli"
       "copilot-cli"
       "kitty"
