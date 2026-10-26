@@ -20,5 +20,6 @@
     keepassxc
     meld
     jujutsu
+    trippy
   ];
 }
