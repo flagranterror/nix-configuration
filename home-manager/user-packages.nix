@@ -21,5 +21,7 @@
     meld
     jujutsu
     trippy
+    syft
+    grype
   ];
 }
