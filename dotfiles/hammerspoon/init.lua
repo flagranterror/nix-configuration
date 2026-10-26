@@ -10,8 +10,8 @@ spoon.SpoonInstall:andUse("AppLauncher", {
     d = "Discord",
     i = "DEVONthink",
     j = "Brave Browser",
-    k = "Visual Studio Code",
-    n = "Obsidian",
+    v = "Visual Studio Code",
+    n = "Notes",
     p = "1Password",
     l = "Kitty",
     z = "Zoom.us",
@@ -19,7 +19,7 @@ spoon.SpoonInstall:andUse("AppLauncher", {
     m = "Mail",
     s = "Messages",
     r = "Remember The Milk",
-    b = "BBEdit",
+    k = "BBEdit",
     o = "Signal",
   }
 })
