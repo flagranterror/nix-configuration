@@ -31,6 +31,18 @@
       "bison"
       "re2c"
       "pkg-config"
+      "openssl"
+      "readline"
+      "libxml2"
+      "curl"
+      "libjpeg"
+      "libpng"
+      "bzip2"
+      "libiconv"
+      "icu4c"
+      "oniguruma"
+      "libzip"
+      "tidy-html5"
     ];
     casks = [
       "signal"
