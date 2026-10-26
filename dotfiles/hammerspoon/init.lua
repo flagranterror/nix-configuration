@@ -8,6 +8,7 @@ spoon.SpoonInstall:andUse("AppLauncher", {
     f = "Finder",
     c = "Fantastical",
     d = "Discord",
+    i = "DEVONthink",
     j = "Brave Browser",
     k = "Visual Studio Code",
     n = "Obsidian",
