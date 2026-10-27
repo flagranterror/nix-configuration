@@ -28,12 +28,19 @@
     brews = [
       "curl"
       "autoconf"
+      "automake"
       "bison"
       "re2c"
+      "gd"
+      "gettext"
+      "icu4c"
+      "krb5"
+      "libedit"
       "pkg-config"
       "openssl"
       "readline"
       "libxml2"
+      "libzip"
       "curl"
       "libjpeg"
       "libpng"
@@ -43,6 +50,8 @@
       "oniguruma"
       "libzip"
       "tidy-html5"
+      "freetype"
+      "zlib"
     ];
     casks = [
       "signal"
