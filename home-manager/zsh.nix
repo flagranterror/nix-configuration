@@ -12,8 +12,9 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-
-
+    sessionVariables = {
+      EDITOR = "hx";
+    };
 #     shellAliases = {};
 
     history.size = 10000;
