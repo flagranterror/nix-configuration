@@ -21,6 +21,7 @@ spoon.SpoonInstall:andUse("AppLauncher", {
     r = "Remember The Milk",
     k = "BBEdit",
     o = "Signal",
+    t = "TextEdit",
   }
 })
 
