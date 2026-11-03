@@ -27,6 +27,7 @@
     ];
     brews = [
       "curl"
+      "composer"
       "autoconf"
       "automake"
       "bison"
@@ -34,6 +35,7 @@
       "gd"
       "gettext"
       "icu4c"
+      "php"
       "krb5"
       "libedit"
       "pkg-config"
