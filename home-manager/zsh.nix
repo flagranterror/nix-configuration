@@ -15,7 +15,9 @@
     sessionVariables = {
       EDITOR = "hx";
     };
-#     shellAliases = {};
+  shellAliases = {
+    sail = "[ -f sail ] && sh sail || sh vendor/bin/sail";
+  };
 
     history.size = 10000;
 

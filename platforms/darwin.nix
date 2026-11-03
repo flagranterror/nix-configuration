@@ -73,6 +73,7 @@
       "discord"
       "zotero"
       "obsidian"
+      "claude-code"
     ];
   };
 
