@@ -15,7 +15,7 @@ spoon.SpoonInstall:andUse("AppLauncher", {
     p = "1Password",
     l = "Kitty",
     z = "Zoom.us",
-    h = "Google Chat",
+    h = "Claude",
     m = "Mail",
     s = "Messages",
     r = "Remember The Milk",
