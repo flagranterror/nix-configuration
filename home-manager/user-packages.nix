@@ -17,7 +17,6 @@
     bruno
     inkscape
     librewolf
-    keepassxc
     meld
     jujutsu
     trippy

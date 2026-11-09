@@ -65,6 +65,7 @@
       "fluor"
       "inkscape"
       "visual-studio-code"
+      "librewolf"
       "marta"
       "basictex"
       "fluor"
