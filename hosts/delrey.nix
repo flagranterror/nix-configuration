@@ -1,7 +1,13 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, inputs, lib, pkgs, modulesPath, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+
+    experimental-features = [ "nix-command" "flakes" ];
+    substituters = [ "https://hyprland.cachix.org" ];
+    # trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
+    trusted-users = [ "root" "doug" ];
+  };
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -9,7 +15,6 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.initrd.luks.devices."luks-d0ade6ea-3eec-4187-9148-7684a097d702".device = "/dev/disk/by-uuid/d0ade6ea-3eec-4187-9148-7684a097d702";
   networking.hostName = "delrey"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -42,11 +47,49 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver = {
+    enable = true;
+  };
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      # The name is just the name of the configuration file, it does not really matter
+      default = {
+        ids = [ "*" ]; # what goes into the [id] section, here we select all keyboards
+        # Everything but the ID section:
+        settings = {
+          # The main layer, if you choose to declare it in Nix
+          main = {
+            capslock = "layer(control)"; # you might need to also enclose the key in quotes if it contains non-alphabetical symbols
+          };
+          otherlayer = {};
+        };
+        extraConfig = ''
+          # put here any extra-config, e.g. you can copy/paste here directly a configuration, just remove the ids part
+        '';
+      };
+    };
+  };
+
+
+  # xdg.portal = {
+  #   enable = true;
+  #   # extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+  # };
+
+  services.displayManager.cosmic-greeter.enable = true;
+  services.desktopManager.cosmic.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
+
+  # programs.hyprland = {
+  #   enable = true;
+  #   # set the flake package
+  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  #   withUWSM = true;
+  #   # make sure to also set the portal package, so that they are in sync
+  #   portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  # };
 
   # services.fprintd = {
   #   enable = true;
@@ -63,6 +106,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  security.polkit.enable = true; 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -79,16 +123,15 @@
   # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users."dag" = {
+  users.users."doug" = {
     isNormalUser = true;
     description = "Doug McNish";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    ];
     shell = pkgs.zsh;
+    packages = with pkgs; [
+    #  thunderbird
+    ];
   };
-
   # install ZSH
   programs.zsh.enable = true;
 
@@ -116,12 +159,32 @@
   #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #   wget
   # ];
+  #
+
+
+  environment.etc = {
+    "1password/custom_allowed_browsers" = {
+      text = ''
+        librewolf
+      '';
+      mode = "0755";
+    };
+  };
   environment.systemPackages = with pkgs; [
     gh
     kitty
-    brave
+    librewolf
     usbutils
     abiword
+    hyprpolkitagent
+    xdg-desktop-portal-hyprland
+    hyprlock
+    hypridle
+    hyprpaper
+    hyprsunset
+    hyprpicker
+    hyprlauncher
+    ashell
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -166,7 +229,7 @@
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
 
-  imports =
+   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
@@ -176,21 +239,19 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/mapper/luks-5fb832b8-b949-4a5b-b383-17f55f8ffd64";
+    { device = "/dev/mapper/luks-5d8558ae-e0d5-47b0-999a-1702408cb55f";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-5fb832b8-b949-4a5b-b383-17f55f8ffd64".device = "/dev/disk/by-uuid/5fb832b8-b949-4a5b-b383-17f55f8ffd64";
+  boot.initrd.luks.devices."luks-5d8558ae-e0d5-47b0-999a-1702408cb55f".device = "/dev/disk/by-uuid/5d8558ae-e0d5-47b0-999a-1702408cb55f";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/59AB-4B18";
+    { device = "/dev/disk/by-uuid/0F41-11DF";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/mapper/luks-d0ade6ea-3eec-4187-9148-7684a097d702"; }
-    ];
+  swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
