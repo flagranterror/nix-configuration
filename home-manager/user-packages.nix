@@ -12,7 +12,6 @@
     starship
     taskwarrior3
     timewarrior
-    github-cli
     nerd-fonts.hack
     bruno
     inkscape

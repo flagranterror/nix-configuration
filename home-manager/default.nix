@@ -6,5 +6,6 @@
       ./zsh.nix
       ./dotfiles.nix
       ./taskwarrior.nix
+      ./gh.nix
     ];
 }
