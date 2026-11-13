@@ -73,23 +73,9 @@
   };
 
 
-  # xdg.portal = {
-  #   enable = true;
-  #   # extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
-  # };
-
   services.displayManager.cosmic-greeter.enable = true;
   services.desktopManager.cosmic.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
-
-  # programs.hyprland = {
-  #   enable = true;
-  #   # set the flake package
-  #   package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-  #   withUWSM = true;
-  #   # make sure to also set the portal package, so that they are in sync
-  #   portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  # };
 
   # services.fprintd = {
   #   enable = true;
@@ -170,6 +156,7 @@
       mode = "0755";
     };
   };
+
   environment.systemPackages = with pkgs; [
     gh
     kitty
@@ -178,13 +165,6 @@
     abiword
     hyprpolkitagent
     xdg-desktop-portal-hyprland
-    hyprlock
-    hypridle
-    hyprpaper
-    hyprsunset
-    hyprpicker
-    hyprlauncher
-    ashell
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
