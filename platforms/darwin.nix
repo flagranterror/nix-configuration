@@ -26,7 +26,6 @@
       }
     ];
     brews = [
-      "curl"
       "composer"
       "autoconf"
       "automake"
@@ -49,9 +48,7 @@
       "bzip2"
       "libiconv"
       "icu4c"
-      "oniguruma"
       "libzip"
-      "tidy-html5"
       "freetype"
       "zlib"
     ];

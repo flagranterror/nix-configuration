@@ -163,8 +163,6 @@
     librewolf
     usbutils
     abiword
-    hyprpolkitagent
-    xdg-desktop-portal-hyprland
   ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
