@@ -148,7 +148,7 @@
   #
 
   environment.shellAliases = {
-    rebuild = "nixos-rebuild switch --flake $HOME/.config/nix-configuration#$(hostname -s)"
+    rebuild = "sudo nixos-rebuild switch --flake $HOME/.config/nix-configuration#$(hostname -s)";
   };
 
   environment.etc = {
