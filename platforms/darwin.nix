@@ -3,13 +3,24 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.enable = false;                      # uncomment if using Determinate Nix
 
-  programs.zsh.enable = true; 
+  programs.zsh = {
+    enable = true;
+  }; 
 
-  environment.systemPackages = with pkgs; [ 
-    git 
-    vim
-    coreutils-prefixed
-  ];
+  environment = {
+    variables = {
+        OBJC_DISABLE_INITIALIZE_FORK_SAFETY = "YES";
+    };
+    shellAliases = {
+      rebuild = "sudo darwin-rebuild switch --flake $HOME/.config/nix-configuration/.#\$(hostname -s)";
+      ls = "gls --color=auto --hyperlink=auto";
+    };
+    systemPackages = with pkgs; [ 
+      git 
+      vim
+      coreutils-prefixed
+    ];
+  };
 
   homebrew = {
     enable = true;

@@ -120,7 +120,7 @@
   };
   # install ZSH
   programs.zsh.enable = true;
-
+  
   # Install git
   programs.git.enable = true;
 
@@ -147,6 +147,9 @@
   # ];
   #
 
+  environment.shellAliases = {
+    rebuild = "nixos-rebuild switch --flake $HOME/.config/nix-configuration#$(hostname -s)"
+  };
 
   environment.etc = {
     "1password/custom_allowed_browsers" = {
