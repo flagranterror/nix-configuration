@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     helix
+    btop
     bgpq4
     subnetcalc
     drawio
