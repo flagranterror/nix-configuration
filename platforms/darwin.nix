@@ -64,6 +64,7 @@
       "zlib"
     ];
     casks = [
+      "orion"
       "signal"
       "steam"
       "1password-cli"
