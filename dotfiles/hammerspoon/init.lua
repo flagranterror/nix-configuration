@@ -9,7 +9,7 @@ spoon.SpoonInstall:andUse("AppLauncher", {
     c = "Fantastical",
     d = "Discord",
     i = "DEVONthink",
-    j = "Orion",
+    j = "Librewolf",
     v = "Visual Studio Code",
     n = "Notes",
     p = "1Password",
